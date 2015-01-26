@@ -13,5 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require local_time
+//= require porto/jquery.appear
+//= require porto/jquery.easing
+//= require porto/jquery-cookie
+//= require porto/bootstrap
+//= require porto/common
+//= require porto/jquery.stellar
+//= require porto/jquery.isotope
+//= require porto/vide
+//= require porto/theme
+//= require porto/custom
+//= require porto/theme.init

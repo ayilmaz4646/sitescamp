@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150116083753) do
+ActiveRecord::Schema.define(version: 20150124093833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "feeder_feed_errors", force: true do |t|
+    t.integer  "feed_source_id", null: false
+    t.text     "feed_param"
+    t.text     "error_message"
+    t.string   "error_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feeder_feed_errors", ["feed_source_id"], name: "index_feeder_feed_errors_on_feed_source_id", using: :btree
 
   create_table "feeder_feed_sources", force: true do |t|
     t.string   "title",           null: false
@@ -51,6 +62,20 @@ ActiveRecord::Schema.define(version: 20150116083753) do
   create_table "feeder_sites_feeds", force: true do |t|
     t.integer  "site_id"
     t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeder_user_likes", force: true do |t|
+    t.integer  "feed_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeder_user_sources", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "feed_source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

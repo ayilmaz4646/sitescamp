@@ -51,6 +51,7 @@ gem 'cloudinary'
 gem 'feedjira'
 gem 'domainator'
 gem 'alchemy-api-rb', require: 'alchemy_api'
+#gem 'mechanize'
 
 gem "resque", "~> 1.25", require: "resque/server"
 gem 'resque-scheduler', require: "resque/server"
