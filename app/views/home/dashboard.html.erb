@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="page-breadcrumb breadcrumb">
+      <li id="homenavigator">
+        <i class="fa fa-home"></i>
+        <%= link_to t("simple_form.labels.defaults.mainpage"), main_app.root_url %>
+      </li>
+      <li class="pull-right">
+        <a href="javascript:;" onclick="hopscotch.startTour(tour);">
+          <i class="fa fa-info"></i> Tour
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="tiles">
+  <%#= generate_tile("Notifications", "6", "double-down bg-blue", "fa fa-bell", nil) %>
+  <%#= generate_tile("Meetings", "12", "bg-green", "fa fa-calendar", nil) %>
+  <%#= generate_tile("support@metronic.com", "12", "double bg-blue", "fa fa-envelope", nil) %>
+  <%#= generate_tile("Members", "452", "selected bg-red", "fa fa-user", nil) %>
+  <%#= generate_tile("Announcements", "452", "double bg-purple", "fa fa-bullhorn", nil) %>
+  <%#= generate_tile("Orders", "121", "bg-yellow", "fa fa-shopping-cart", nil) %>
+  <%#= generate_tile("Blog", "21", "bg-blue", "fa fa-coffee", blogger.articles_path) %>
+  <%#= generate_tile("Feedback", "12", "bg-green", "fa fa-comments-alt", nil) %>
+  <%#= generate_tile("@lisa_wong", "10:45PM, 23 Jan", "double bg-dark", "fa fa-twitter", nil) %>
+  <%#= generate_tile("Meetups", "12 Jan", "bg-blue", "fa fa-coffee", nil) %>
+  <%#= generate_tile("Reports", "", "bg-green", "fa fa-bar-chart", nil) %>
+  <%#= generate_tile("Documents", "124", "bg-purple", "fa fa-briefcase", nil) %>
+  <%#= generate_tile("Gallery", "124", "image double selected", "fa fa-picture", nil) %>
+  <%#= generate_tile("Settings", "", "bg-yellow selected", "fa fa-cogs", nil) %>
+  <%#= generate_tile("Projects", "34", "bg-purple", "fa fa-plane", nil) %>
+
+  <%#= generate_tile(t("simple_form.labels.position.positions"), "", "double selected bg-blue", "fa fa-folder-open", logistics.positions_url) %>
+  <%#= generate_tile(t("simple_form.labels.lead.leads"), "", "double selected bg-blue", "fa fa-gift", logistics.leads_url) %>
+  <%#= generate_tile(Logistics::Loading.model_name.human(count: 2), "", "selected bg-green", "fa fa-table", logistics.loadings_url) %>
+  <%#= generate_tile(t("defaults.title.reports"), "", "selected bg-green", "fa fa-bar-chart-o", roster.reports_url) %>
+  <%#= generate_tile(Network::Company.model_name.human(count: 2), "", "double bg-blue", "fa fa-building-o", network.companies_url) %>
+  <%#= generate_tile(Network::Contact.model_name.human(count: 2), "", "double bg-red", "fa fa-user", network.contacts_url) %>
+  <%#= generate_tile(t("defaults.title.calendar"), "", "bg-purple", "fa fa-calendar", nimbos.calendar_url) %>
+  <%#= generate_tile(t("posts.title.posts"), "0", "bg-green", "fa fa-comments", nimbos.posts_url) %>
+  <%#= generate_tile(t("users.title.inbox"), "0", "bg-blue", "fa fa-envelope", messenger.messages_url) %>
+  <%#= generate_tile(t("announcements.title.announcements"), "0", "bg-purple", "fa fa-bullhorn", messenger.memos_url) %>
+  <%#= generate_tile(t("users.title.profile"), "", "image selected", "fa fa-user", nimbos.user_url(current_user)) %>
+  <%#= generate_tile(t("users.title.settings"), "", "bg-yellow", "fa fa-cogs", nimbos.edit_user_url(current_user)) %>
+</div>
+
+<% if current_user.avatar_url ==  "/assets/user.png" %>
+  <div>
+    <div class="portlet">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-comment"></i> Notification
+        </div>
+        <div class="tools">
+          <a href="javascript:;" class="remove"></a>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <blockquote>
+        <p class="text-success">
+          Hi, it seems that you did not upload your profile picture,
+          <%= link_to "to change your picture click here", nimbos.user_path(current_user) %>
+        </p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+<% end %>

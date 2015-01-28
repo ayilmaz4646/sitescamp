@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124093833) do
+ActiveRecord::Schema.define(version: 20150128145506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 20150124093833) do
     t.string   "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "author"
+    t.date     "published_at"
+    t.integer  "likes_count"
   end
 
   add_index "feeder_feeds", ["entry_id", "feed_source_id"], name: "index_feeder_feeds_on_entry_id_and_feed_source_id", unique: true, using: :btree
