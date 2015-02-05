@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128145506) do
+ActiveRecord::Schema.define(version: 20150131130607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20150128145506) do
   end
 
   create_table "feeder_feeds", force: true do |t|
-    t.string   "title",                          null: false
+    t.string   "title",                                       null: false
     t.text     "content"
     t.string   "url"
-    t.boolean  "analyzed",       default: false
-    t.string   "language",       default: "f"
+    t.boolean  "analyzed",                    default: false
+    t.string   "language",                    default: "f"
     t.integer  "feed_source_id"
     t.string   "entry_id"
     t.datetime "created_at"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150128145506) do
     t.string   "author"
     t.date     "published_at"
     t.integer  "likes_count"
+    t.string   "image_url",      limit: 1000
   end
 
   add_index "feeder_feeds", ["entry_id", "feed_source_id"], name: "index_feeder_feeds_on_entry_id_and_feed_source_id", unique: true, using: :btree

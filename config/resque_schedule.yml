@@ -1,0 +1,3 @@
+ScheduleSendNotificationsJob:
+  every: 3m
+  queue: high

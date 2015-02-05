@@ -1,0 +1,28 @@
+<aside class="sidebar">
+	<!--form>
+		<div class="input-group input-group-lg">
+			<input class="form-control" placeholder="Search..." name="s" id="s" type="text">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+			</span>
+		</div>
+	</form-->
+	<h5>Top Rated Sources</h5>
+	<ul class="simple-post-list">
+		<% @feed_sources.each do |feed_source| %>
+			<li>
+				<%= link_to feed_source.url, feeder.feed_source_path(feed_source) %>
+			</li>
+		<% end %>
+	</ul>
+
+<h5>Top Rated Sites</h5>
+	<ul class="simple-post-list">
+		<% @sites.each do |site| %>
+			<li>
+				<%= link_to site.domain, feeder.site_path(site) %>
+			</li>
+		<% end %>
+	</ul>	
+
+</aside>

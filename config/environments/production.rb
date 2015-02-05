@@ -31,6 +31,7 @@ Rails.application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
+  config.assets.precompile += %w( homepage.css homepage.js )
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

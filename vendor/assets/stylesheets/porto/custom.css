@@ -1,1 +1,41 @@
 /* Add here all your CSS customizations */
+article.post-large {
+	margin-left: auto;
+}
+
+article.post-large .post-image, article.post-large .post-date {
+	margin-left: auto;
+}
+
+article.post-large .post-content p img {
+	display: block;
+	margin-bottom: 20px;
+	max-width: 100%;
+}
+
+article.post-large .post-content p {
+	font-family: "freight-text-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+	letter-spacing: 0.01rem;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 22px;
+	line-height: 1.5;
+}
+
+article.post-large .post-content h2 {
+	font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+	letter-spacing: -0.02em;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 32px;
+	margin-left: -1.6px;
+	line-height: 1.2;
+	color: rgba(0,0,0,0.44);
+	margin-bottom: 2px;
+	text-align: center;
+}
+
+section.timeline .timeline-box .img-thumbnail img {
+	width: 370px;
+	max-height: 200px;
+}
