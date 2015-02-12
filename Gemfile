@@ -41,7 +41,7 @@ gem 'unicorn'
 gem 'simple_form'#, '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
 gem 'kaminari', '~> 0.16.1'
 gem 'local_time'
-gem 'roadie'
+gem 'roadie-rails'
 gem 'exception_notification'
 gem 'font-awesome-rails'
 gem 'carrierwave'
@@ -52,6 +52,7 @@ gem 'feedjira'
 gem 'domainator'
 gem 'alchemy-api-rb', require: 'alchemy_api'
 #gem 'mechanize'
+gem 'metainspector', '~> 4.3.0'
 
 gem "resque", "~> 1.25", require: "resque/server"
 gem 'resque-scheduler', require: "resque/server"

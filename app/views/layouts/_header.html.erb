@@ -1,6 +1,17 @@
 <% if current_user %>
 	<div class="header-inner">
-	  <%= link_to (image_tag "logo.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>	
+	  <%= link_to (image_tag "logo.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>
+
+		<div class="hor-menu hidden-sm hidden-xs">
+			<ul class="nav navbar-nav">
+				<li id="featuresnavigator">
+					<%= link_to t("defaults.link.favorites") %>
+				</li>
+				<li id="pricingnavigator">
+					<%= link_to t("defaults.link.read_later") %>
+				</li>
+			</ul>
+		</div>	
   <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">	
     <%= image_tag("metronic/menu-toggler.png") %>
 	  </a> 
@@ -32,19 +43,6 @@
 	  <%= link_to main_app.root_url, class: "navbar-brand" do %>
 		  <%= image_tag("logo.png", class: "img-responsive") %>
 		<% end %>
-		<div class="hor-menu hidden-sm hidden-xs">
-			<ul class="nav navbar-nav">
-				<li id="homenavigator">
-	        <%= link_to t("simple_form.labels.defaults.mainpage"), main_app.root_url %>
-				</li>
-				<li id="featuresnavigator">
-					<%= link_to t("defaults.link.features"), main_app.features_url %>
-				</li>
-				<li id="pricingnavigator">
-					<%= link_to t("defaults.link.pricing"), main_app.pricing_url %>
-				</li>
-			</ul>
-		</div>
 			<ul class="nav navbar-nav pull-right">
 			  <li>
 					<%= link_to nimbos.login_path, class: "btn blue", style: "color: #fff;" do %>
