@@ -53,6 +53,7 @@ gem 'domainator'
 gem 'alchemy-api-rb', require: 'alchemy_api'
 #gem 'mechanize'
 gem 'metainspector', '~> 4.3.0'
+gem 'feedparser'
 
 gem "resque", "~> 1.25", require: "resque/server"
 gem 'resque-scheduler', require: "resque/server"
