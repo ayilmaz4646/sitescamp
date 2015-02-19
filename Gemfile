@@ -47,6 +47,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'cloudinary'
+gem 'social-share-button', '~> 0.1.4'
 
 gem 'feedjira'
 gem 'domainator'
