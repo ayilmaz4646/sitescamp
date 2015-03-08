@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212132453) do
+ActiveRecord::Schema.define(version: 20150307185812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20150212132453) do
 
   add_index "feeder_feeds", ["entry_id", "feed_source_id"], name: "index_feeder_feeds_on_entry_id_and_feed_source_id", unique: true, using: :btree
 
+  create_table "feeder_readlaters", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feeder_readlaters", ["user_id"], name: "index_feeder_readlaters_on_user_id", using: :btree
+
   create_table "feeder_sites", force: true do |t|
     t.string   "domain",      limit: 500,  null: false
     t.string   "title",       limit: 1000
@@ -77,6 +85,16 @@ ActiveRecord::Schema.define(version: 20150212132453) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "feeder_user_readlaters", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feeder_user_readlaters", ["feed_id"], name: "index_feeder_user_readlaters_on_feed_id", using: :btree
+  add_index "feeder_user_readlaters", ["user_id"], name: "index_feeder_user_readlaters_on_user_id", using: :btree
 
   create_table "feeder_user_sources", force: true do |t|
     t.integer  "user_id"

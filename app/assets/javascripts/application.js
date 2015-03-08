@@ -25,3 +25,4 @@
 //= require porto/theme
 //= require porto/custom
 //= require porto/theme.init
+//= require social-share-button

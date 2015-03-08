@@ -39,3 +39,22 @@ section.timeline .timeline-box .img-thumbnail img {
 	width: 370px;
 	max-height: 200px;
 }
+select.ul .social-icons li {
+background-image: url(../img/social-sprites.png);
+background-repeat: no-repeat;
+background-color: #FFF;
+background-position: 0 100px;
+display: inline-block;
+margin: -1px 1px 5px 0;
+padding: 0;
+border-radius: 100%;
+overflow: visible;
+transition: all 0.3s ease;
+box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
+-moz-border-radius: 100%;
+-moz-transition: all 0.3s ease;
+-ms-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+-webkit-border-radius: 100%;
+-webkit-transition: all 0.3s ease;
+}
