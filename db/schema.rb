@@ -16,18 +16,18 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "feeder_feed_errors", force: true do |t|
-    t.integer  "feed_source_id", null: false
+  create_table "feeder_feed_errors", force: :cascade do |t|
+    t.integer  "feed_source_id",             null: false
     t.text     "feed_param"
     t.text     "error_message"
-    t.string   "error_type"
+    t.string   "error_type",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "feeder_feed_errors", ["feed_source_id"], name: "index_feeder_feed_errors_on_feed_source_id", using: :btree
 
-  create_table "feeder_feed_sources", force: true do |t|
+  create_table "feeder_feed_sources", force: :cascade do |t|
     t.string   "title",           null: false
     t.string   "url"
     t.string   "duration"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.datetime "updated_at"
   end
 
-  create_table "feeder_feeds", force: true do |t|
+  create_table "feeder_feeds", force: :cascade do |t|
     t.string   "title",                                       null: false
     t.text     "content"
     t.string   "url"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "feeder_feeds", ["entry_id", "feed_source_id"], name: "index_feeder_feeds_on_entry_id_and_feed_source_id", unique: true, using: :btree
 
-  create_table "feeder_readlaters", force: true do |t|
+  create_table "feeder_readlaters", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "feeder_readlaters", ["user_id"], name: "index_feeder_readlaters_on_user_id", using: :btree
 
-  create_table "feeder_sites", force: true do |t|
+  create_table "feeder_sites", force: :cascade do |t|
     t.string   "domain",      limit: 500,  null: false
     t.string   "title",       limit: 1000
     t.text     "description"
@@ -72,21 +72,23 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.string   "image_url"
   end
 
-  create_table "feeder_sites_feeds", force: true do |t|
+  add_index "feeder_sites", ["domain"], name: "index_feeder_sites_on_domain", using: :btree
+
+  create_table "feeder_sites_feeds", force: :cascade do |t|
     t.integer  "site_id"
     t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "feeder_user_likes", force: true do |t|
+  create_table "feeder_user_likes", force: :cascade do |t|
     t.integer  "feed_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "feeder_user_readlaters", force: true do |t|
+  create_table "feeder_user_readlaters", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "feed_id"
     t.datetime "created_at"
@@ -96,14 +98,14 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "feeder_user_readlaters", ["feed_id"], name: "index_feeder_user_readlaters_on_feed_id", using: :btree
   add_index "feeder_user_readlaters", ["user_id"], name: "index_feeder_user_readlaters_on_user_id", using: :btree
 
-  create_table "feeder_user_sources", force: true do |t|
+  create_table "feeder_user_sources", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "feed_source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "nimbos_activities", force: true do |t|
+  create_table "nimbos_activities", force: :cascade do |t|
     t.integer  "user_id",                null: false
     t.string   "target_type", limit: 40
     t.integer  "target_id"
@@ -116,7 +118,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "nimbos_activities", ["user_id", "patron_id"], name: "index_nimbos_activities_on_user_id_and_patron_id", using: :btree
 
-  create_table "nimbos_branches", force: true do |t|
+  create_table "nimbos_branches", force: :cascade do |t|
     t.string   "name",       limit: 40,                     null: false
     t.string   "tel",        limit: 15
     t.string   "fax",        limit: 15
@@ -138,7 +140,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "nimbos_branches", ["patron_id"], name: "index_nimbos_branches_on_patron_id", using: :btree
 
-  create_table "nimbos_comments", force: true do |t|
+  create_table "nimbos_comments", force: :cascade do |t|
     t.integer  "user_id",                                   null: false
     t.text     "comment_text",                              null: false
     t.string   "commentable_type", limit: 40
@@ -152,7 +154,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "nimbos_comments", ["commentable_type", "commentable_id"], name: "index_nimbos_comments_on_commentable_type_and_commentable_id", using: :btree
   add_index "nimbos_comments", ["patron_id"], name: "index_nimbos_comments_on_patron_id", using: :btree
 
-  create_table "nimbos_counters", force: true do |t|
+  create_table "nimbos_counters", force: :cascade do |t|
     t.string   "counter_type"
     t.integer  "count"
     t.string   "prefix"
@@ -166,7 +168,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "nimbos_counters", ["patron_id"], name: "index_nimbos_counters_on_patron_id", using: :btree
 
-  create_table "nimbos_countries", primary_key: "code", force: true do |t|
+  create_table "nimbos_countries", primary_key: "code", force: :cascade do |t|
     t.string   "name",          limit: 40,                 null: false
     t.string   "telcode",       limit: 10
     t.float    "latitude"
@@ -186,31 +188,31 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.datetime "updated_at"
   end
 
-  create_table "nimbos_currencies", primary_key: "code", force: true do |t|
-    t.string   "name",       limit: 40,                                     null: false
+  create_table "nimbos_currencies", primary_key: "code", force: :cascade do |t|
+    t.string   "name",       limit: 40,                           null: false
     t.string   "symbol",     limit: 1
-    t.decimal  "multiplier",            precision: 5, scale: 0, default: 1, null: false
+    t.decimal  "multiplier",            precision: 5, default: 1, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "nimbos_discussions", force: true do |t|
-    t.string   "title",                                 null: false
+  create_table "nimbos_discussions", force: :cascade do |t|
+    t.string   "title",          limit: 255,             null: false
     t.text     "content"
     t.string   "target_type",    limit: 50
     t.integer  "target_id"
-    t.integer  "user_id",                               null: false
-    t.integer  "patron_id",                             null: false
+    t.integer  "user_id",                                null: false
+    t.integer  "patron_id",                              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count",            default: 0
+    t.integer  "comments_count",             default: 0
   end
 
   add_index "nimbos_discussions", ["patron_id"], name: "index_nimbos_discussions_on_patron_id", using: :btree
   add_index "nimbos_discussions", ["target_type", "target_id"], name: "index_nimbos_discussions_on_target_type_and_target_id", using: :btree
 
-  create_table "nimbos_groups", force: true do |t|
-    t.string   "title"
+  create_table "nimbos_groups", force: :cascade do |t|
+    t.string   "title",        limit: 255
     t.string   "grouped_type", limit: 100
     t.integer  "grouped_id"
     t.boolean  "hidden",                   default: false
@@ -224,7 +226,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "nimbos_groups", ["patron_id"], name: "index_nimbos_groups_on_patron_id", using: :btree
   add_index "nimbos_groups", ["title"], name: "index_nimbos_groups_on_title", using: :btree
 
-  create_table "nimbos_listheaders", force: true do |t|
+  create_table "nimbos_listheaders", force: :cascade do |t|
     t.string   "code",        null: false
     t.string   "name"
     t.string   "i18n_code"
@@ -233,7 +235,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.datetime "updated_at"
   end
 
-  create_table "nimbos_listitems", force: true do |t|
+  create_table "nimbos_listitems", force: :cascade do |t|
     t.string   "code",          limit: 50, null: false
     t.string   "name",          limit: 50
     t.string   "list_code"
@@ -245,7 +247,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "nimbos_listitems", ["listheader_id"], name: "index_nimbos_listitems_on_listheader_id", using: :btree
 
-  create_table "nimbos_patrons", force: true do |t|
+  create_table "nimbos_patrons", force: :cascade do |t|
     t.string   "name",            limit: 40,                     null: false
     t.string   "title",           limit: 60
     t.string   "email",           limit: 60,                     null: false
@@ -275,16 +277,16 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.datetime "updated_at"
   end
 
-  create_table "nimbos_posts", force: true do |t|
-    t.integer  "user_id",                                   null: false
-    t.text     "message",                                   null: false
+  create_table "nimbos_posts", force: :cascade do |t|
+    t.integer  "user_id",                                    null: false
+    t.text     "message",                                    null: false
     t.string   "target_type",    limit: 40
     t.integer  "target_id"
-    t.string   "target_title"
-    t.string   "target_url"
-    t.boolean  "is_private",                default: false
-    t.boolean  "is_syspost",                default: false
-    t.integer  "patron_id",                                 null: false
+    t.string   "target_title",   limit: 255
+    t.string   "target_url",     limit: 255
+    t.boolean  "is_private",                 default: false
+    t.boolean  "is_syspost",                 default: false
+    t.integer  "patron_id",                                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "parent_type",    limit: 40
@@ -293,17 +295,17 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.string   "parent_url"
     t.string   "post_action",    limit: 50
     t.string   "channel",        limit: 50
-    t.boolean  "trashed",                   default: false
-    t.integer  "comments_count",            default: 0
-    t.integer  "likes_count",               default: 0
+    t.boolean  "trashed",                    default: false
+    t.integer  "comments_count",             default: 0
+    t.integer  "likes_count",                default: 0
   end
 
   add_index "nimbos_posts", ["patron_id"], name: "index_nimbos_posts_on_patron_id", using: :btree
   add_index "nimbos_posts", ["target_type", "target_id"], name: "index_nimbos_posts_on_target_type_and_target_id", using: :btree
   add_index "nimbos_posts", ["user_id"], name: "index_nimbos_posts_on_user_id", using: :btree
 
-  create_table "nimbos_reminders", force: true do |t|
-    t.string   "title",                                      null: false
+  create_table "nimbos_reminders", force: :cascade do |t|
+    t.string   "title",          limit: 255,                 null: false
     t.date     "start_date",                                 null: false
     t.string   "start_hour",     limit: 5
     t.date     "finish_date"
@@ -321,7 +323,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "nimbos_reminders", ["patron_id"], name: "index_nimbos_reminders_on_patron_id", using: :btree
   add_index "nimbos_reminders", ["remindfor_type", "remindfor_id"], name: "index_nimbos_reminders_on_remindfor_type_and_remindfor_id", using: :btree
 
-  create_table "nimbos_roles", force: true do |t|
+  create_table "nimbos_roles", force: :cascade do |t|
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
@@ -332,30 +334,30 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "nimbos_roles", ["name", "resource_type", "resource_id"], name: "index_nimbos_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "nimbos_roles", ["name"], name: "index_nimbos_roles_on_name", using: :btree
 
-  create_table "nimbos_tasks", force: true do |t|
-    t.integer  "todolist_id",                                  null: false
-    t.integer  "user_id",                                      null: false
-    t.string   "task_text",                                    null: false
+  create_table "nimbos_tasks", force: :cascade do |t|
+    t.integer  "todolist_id",                                   null: false
+    t.integer  "user_id",                                       null: false
+    t.string   "task_text",      limit: 255,                    null: false
     t.string   "task_code",      limit: 50
     t.string   "i18n_code",      limit: 50
     t.integer  "cruser_id"
-    t.string   "status",         limit: 10, default: "active"
+    t.string   "status",         limit: 10,  default: "active"
     t.date     "due_date"
     t.date     "closed_date"
-    t.string   "close_text"
-    t.boolean  "system_task",               default: false
-    t.integer  "patron_id",                                    null: false
+    t.string   "close_text",     limit: 255
+    t.boolean  "system_task",                default: false
+    t.integer  "patron_id",                                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "comments_count",            default: 0
+    t.integer  "comments_count",             default: 0
   end
 
   add_index "nimbos_tasks", ["patron_id"], name: "index_nimbos_tasks_on_patron_id", using: :btree
   add_index "nimbos_tasks", ["todolist_id"], name: "index_nimbos_tasks_on_todolist_id", using: :btree
   add_index "nimbos_tasks", ["user_id"], name: "index_nimbos_tasks_on_user_id", using: :btree
 
-  create_table "nimbos_todolists", force: true do |t|
-    t.string   "name",                                    null: false
+  create_table "nimbos_todolists", force: :cascade do |t|
+    t.string   "name",        limit: 255,                 null: false
     t.integer  "user_id",                                 null: false
     t.string   "todop_type",  limit: 100
     t.integer  "todop_id"
@@ -370,7 +372,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "nimbos_todolists", ["todop_type", "todop_id"], name: "index_nimbos_todolists_on_todop_type_and_todop_id", using: :btree
   add_index "nimbos_todolists", ["user_id"], name: "index_nimbos_todolists_on_user_id", using: :btree
 
-  create_table "nimbos_users", force: true do |t|
+  create_table "nimbos_users", force: :cascade do |t|
     t.string   "email",                           limit: 40,                                        null: false
     t.string   "password_digest"
     t.string   "salt"
@@ -412,14 +414,14 @@ ActiveRecord::Schema.define(version: 20150307185812) do
   add_index "nimbos_users", ["patron_id"], name: "index_nimbos_users_on_patron_id", using: :btree
   add_index "nimbos_users", ["remember_me_token"], name: "index_nimbos_users_on_remember_me_token", using: :btree
 
-  create_table "nimbos_users_groups", id: false, force: true do |t|
+  create_table "nimbos_users_groups", id: false, force: :cascade do |t|
     t.integer "group_id"
     t.integer "user_id"
   end
 
   add_index "nimbos_users_groups", ["group_id", "user_id"], name: "index_nimbos_users_groups_on_group_id_and_user_id", using: :btree
 
-  create_table "nimbos_users_roles", id: false, force: true do |t|
+  create_table "nimbos_users_roles", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "role_id"
   end

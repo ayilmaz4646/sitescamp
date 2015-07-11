@@ -2,14 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
+
 gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -25,7 +24,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', '~> 1.3.2',        group: :development
-
+gem 'libv8', '~> 3.16.14.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -59,9 +58,17 @@ gem 'feedparser'
 gem "resque", "~> 1.25", require: "resque/server"
 gem 'resque-scheduler', require: "resque/server"
 
-gem 'nimbos', path: "../nimbos"
-gem 'messenger', path: "../messenger"
-gem 'feeder', path: "../feeder"
+gem 'nimbos', git: "git@github.com:farukca/nimbos.git", branch: "master"
+gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
+gem 'messenger', git: "git@191.238.113.249:nimbo/messenger.git", branch: "master"
+
+# gem 'nimbos', path: "../nimbos"
+# gem 'messenger', path: "../messenger"
+# gem 'feeder', path: "../feeder"
+
+gem 'capistrano',  '~> 3.1'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rbenv', '~> 2.0'
 
 group :test do
   gem 'minitest'
