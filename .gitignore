@@ -16,3 +16,6 @@
 /tmp
 
 config/secrets.yml
+config/database.yml
+config/cloudinary.yml
+config/resque.yml
