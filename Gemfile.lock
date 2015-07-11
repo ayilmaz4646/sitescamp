@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: git@github.com:farukca/nimbos.git
-  revision: 0526f8587521bc80b5b7e5dfd55734f2302f0445
+  revision: 6a0456368c107ee04cf1d25c9565f21445976a15
   branch: master
   specs:
     nimbos (0.0.1)
