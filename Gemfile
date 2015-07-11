@@ -38,6 +38,7 @@ gem 'unicorn'
 # gem 'debugger', group: [:development, :test]
 
 gem 'simple_form'#, '~> 3.1.0.rc1', github: 'plataformatec/simple_form', branch: 'master'
+gem 'responders', '~> 2.0'
 gem 'kaminari', '~> 0.16.1'
 gem 'local_time'
 gem 'roadie-rails'
