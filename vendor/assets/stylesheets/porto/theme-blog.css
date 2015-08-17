@@ -1,7 +1,7 @@
 /*
 Name: 			theme-blog.css
 Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		3.7.0
+Version: 		3.8.1
 */
 /* Posts */
 .blog-posts article {
@@ -340,7 +340,7 @@ ul.comments .comment-block .date {
 	padding: 8px;
 }
 
-section.featured .recent-posts .date .day {
+section.section .recent-posts .date .day {
 	background: #FFF;
 }
 
@@ -352,7 +352,6 @@ ul.simple-post-list {
 }
 
 ul.simple-post-list li {
-	*zoom: 1;
 	border-bottom: 1px dotted #E2E2E2;
 	padding: 15px 0;
 }

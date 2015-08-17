@@ -1,7 +1,7 @@
 /*
 Name: 			theme-shop.css
 Written by: 	Okler Themes - (http://www.okler.net)
-Version: 		3.7.0
+Version: 		3.8.1
 */
 /* Custom Font - Stars (From WooCommerce) */
 @font-face {
@@ -368,11 +368,11 @@ Version: 		3.7.0
 	font-size: 0.9em;
 }
 
-.product-info.secundary .product-info-content {
+.product-info.secondary .product-info-content {
 	text-align: center;
 }
 
-.product-info.secundary .product-info-content h4 {
+.product-info.secondary .product-info-content h4 {
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	transition: all 0.2s;
@@ -383,7 +383,7 @@ Version: 		3.7.0
 	opacity: 0;
 }
 
-.product-info.secundary .product-info-content .date {
+.product-info.secondary .product-info-content .date {
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	transition: all 0.2s;
@@ -394,11 +394,11 @@ Version: 		3.7.0
 	opacity: 0;
 }
 
-.product-info.secundary .product-info-act {
+.product-info.secondary .product-info-act {
 	top: 30%;
 }
 
-.product-info.secundary .label {
+.product-info.secondary .label {
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	transition: all 0.2s;
@@ -409,18 +409,18 @@ Version: 		3.7.0
 	opacity: 0;
 }
 
-.product-info.secundary:hover .label {
+.product-info.secondary:hover .label {
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
-.product-info.secundary:hover .product-info-content h4 {
+.product-info.secondary:hover .product-info-content h4 {
 	top: 0;
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
-.product-info.secundary:hover .product-info-content .date {
+.product-info.secondary:hover .product-info-content .date {
 	top: 0;
 	filter: alpha(opacity=100);
 	opacity: 1;
@@ -824,7 +824,7 @@ Version: 		3.7.0
 		color: #FFF;
 	}
 
-	#header nav.mega-menu .mega-menu-shop a .fa-angle-down {
+	#header nav.mega-menu .mega-menu-shop a .fa-caret-down {
 		display: none !important;
 	}
 

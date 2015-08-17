@@ -7,14 +7,6 @@ GIT
       rails (= 4.2.0)
 
 GIT
-  remote: git@github.com:ayilmaz4646/feeder.git
-  revision: 235a3b15ccdb7bfdf7747afbb1ec925f7b652b4e
-  branch: master
-  specs:
-    feeder (0.0.1)
-      rails (= 4.2.0)
-
-GIT
   remote: git@github.com:farukca/nimbos.git
   revision: 6a0456368c107ee04cf1d25c9565f21445976a15
   branch: master
@@ -34,6 +26,12 @@ GIT
       therubyracer
       uglifier (>= 1.3.0)
       warden (= 1.2.3)
+
+PATH
+  remote: ../feeder
+  specs:
+    feeder (0.0.1)
+      rails (= 4.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -390,7 +388,7 @@ DEPENDENCIES
   roadie-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  simple_form
+  simple_form (~> 3.1.0.rc1)
   simplecov
   social-share-button (~> 0.1.4)
   spring (~> 1.3.2)
