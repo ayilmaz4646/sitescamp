@@ -4,8 +4,8 @@ class HomeController < ApplicationController
 
   def index
   	@feeds = Feeder::Feed.order(created_at: :desc).limit(10)
-  	@sites = Feeder::Site.order(created_at: :desc).limit(10)
-  	@feed_sources = Feeder::FeedSource.order(created_at: :desc).limit(10)
+  	@sites = Feeder::Site.order(created_at: :desc).limit(5)
+  	@feed_sources = Feeder::FeedSource.order(created_at: :desc).limit(5)
   	#@channels = Channel.order(created_at: :desc).limit(7)
   end
 

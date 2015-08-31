@@ -11,15 +11,9 @@
  * file per style scope.
  *
  *= require font-awesome
- *= require porto/bootstrap
- *= require porto/theme
- *= require porto/theme-elements
- *= require porto/theme-blog
- *= require porto/theme-shop
- *= require porto/theme-animate
- *= require porto/default
- *= require porto/custom
- *= require social-share-button
+ *= require bootstrap.min
+ *= require font-awesome.min
+ *= require main
  * require_tree
  * require_self
  */

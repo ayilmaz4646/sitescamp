@@ -1,28 +1,6 @@
 <% if current_user %>
-	<div class="header-inner">
-	  <%= link_to (image_tag "sitescamp_logo.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>
-
-		<div class="hor-menu hidden-sm hidden-xs">
-			<ul class="nav navbar-nav">
-				<li id="featuresnavigator">
-					<%= link_to t("defaults.link.favorites"), feeder.feeds_path(filter: "like") %>
-				</li>
-				<li id="pricingnavigator">
-					<%= link_to t("defaults.link.read_later"), feeder.feeds_path(filter: "readlater") %>
-				</li>
-				<li>
-					<%= link_to feeder.feed_sources_path do %>
-						<!-- <i class="fa fa-list"></i> --> feed_source
-					<% end %>
-				</li>
-				<li id="pricingnavigator">
-					<%= link_to "user_sources", feeder.feed_sources_path(filter: "user_sources") %>
-				</li>
-			</ul>
-		</div>	
-  <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">	
-    <%= image_tag("metronic/menu-toggler.png") %>
-	  </a> 
+	<div class="sub-nav">
+	  <%= link_to (image_tag "sitescamp_logo_blck.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>
 	  <ul class="nav navbar-nav pull-right">
 	    <li class="dropdown user">
 	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">	
@@ -52,9 +30,9 @@
 	  </ul>
 	</div>
 <% else %>
-	<div class="header-inner container">
-	  <%= link_to main_app.root_url, class: "navbar-brand" do %>
-		  <%= image_tag("sitescamp_logo.png", class: "img-responsive") %>
+	<div class="sub-nav">
+	  <%= link_to main_app.root_url do %>
+		  <%= image_tag("sitescamp_logo_blck.png", class: "img-responsive") %>
 		<% end %>
 			<ul class="nav navbar-nav pull-right">
 			  <li>
@@ -62,21 +40,6 @@
 					  <%= t("web.label.login") %> <i class="fa fa-sign-in fa-white"></i>
 					<% end %>
 			  </li>
-				<li class="dropdown language">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">	
-				  <span class="uppercase"><%= current_locale %></span>
-					  <i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<% if current_locale.to_s == "en" %>
-							  <%= link_to "TR", locale: 'tr' %>						  
-							<% else %>
-							  <%= link_to "EN", locale: 'en' %>
-							<% end %>
-						</li>
-					</ul>
-				</li>
 			</ul>
 	</div>
 <%end%>

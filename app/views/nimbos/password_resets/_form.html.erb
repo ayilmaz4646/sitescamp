@@ -1,0 +1,32 @@
+<div class="row">
+<%= form_for @user, url: nimbos.password_reset_path(@user), :html => {:method => :put, :class => "form-horizontal"} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= @user.email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :token %>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.submit "Update Password" %>
+  </div>
+<% end %>
+</div>

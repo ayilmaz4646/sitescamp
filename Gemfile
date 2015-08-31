@@ -7,9 +7,9 @@ gem 'rails', '4.2.3'
 gem 'pg'
 # Use SCSS for stylesheets
 
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.3'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -59,11 +59,11 @@ gem 'feedparser'
 gem "resque", "~> 1.25", require: "resque/server"
 gem 'resque-scheduler', require: "resque/server"
 
-gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
+# gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
 gem 'messenger', git: "git@191.238.113.249:nimbo/messenger.git", branch: "master"
 # gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
 
-#gem 'nimbos', path: "../nimbos"
+gem 'nimbos', path: "../nimbos"
 #gem 'messenger', path: "../messenger"
 gem 'feeder', path: "../feeder"
 

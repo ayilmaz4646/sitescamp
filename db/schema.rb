@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307185812) do
+ActiveRecord::Schema.define(version: 20150817154732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,23 @@ ActiveRecord::Schema.define(version: 20150307185812) do
 
   add_index "nimbos_activities", ["user_id", "patron_id"], name: "index_nimbos_activities_on_user_id_and_patron_id", using: :btree
 
+  create_table "nimbos_authorizations", force: :cascade do |t|
+    t.integer  "user_id",                              null: false
+    t.string   "controller", limit: 50,                null: false
+    t.boolean  "can_manage",            default: true
+    t.boolean  "can_read",              default: true
+    t.boolean  "can_create",            default: true
+    t.boolean  "can_update",            default: true
+    t.boolean  "can_delete",            default: true
+    t.boolean  "can_list",              default: true
+    t.integer  "patron_id",                            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nimbos_authorizations", ["patron_id"], name: "index_nimbos_authorizations_on_patron_id", using: :btree
+  add_index "nimbos_authorizations", ["user_id"], name: "index_nimbos_authorizations_on_user_id", using: :btree
+
   create_table "nimbos_branches", force: :cascade do |t|
     t.string   "name",       limit: 40,                     null: false
     t.string   "tel",        limit: 15
@@ -186,6 +203,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.boolean  "listable",                  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uic_code",      limit: 20
   end
 
   create_table "nimbos_currencies", primary_key: "code", force: :cascade do |t|
@@ -275,6 +293,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.string   "mail_encoding",   limit: 20
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "appname",         limit: 30
   end
 
   create_table "nimbos_posts", force: :cascade do |t|
@@ -298,6 +317,7 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.boolean  "trashed",                    default: false
     t.integer  "comments_count",             default: 0
     t.integer  "likes_count",                default: 0
+    t.integer  "group_id"
   end
 
   add_index "nimbos_posts", ["patron_id"], name: "index_nimbos_posts_on_patron_id", using: :btree
@@ -366,6 +386,8 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.boolean  "trashed",                 default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "group_id"
+    t.boolean  "isdefault",               default: false
   end
 
   add_index "nimbos_todolists", ["patron_id"], name: "index_nimbos_todolists_on_patron_id", using: :btree
@@ -408,6 +430,9 @@ ActiveRecord::Schema.define(version: 20150307185812) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_guest",                                   default: false
+    t.boolean  "rootuser",                                   default: false,                        null: false
+    t.boolean  "authorized",                                 default: true,                         null: false
+    t.integer  "manager_id"
   end
 
   add_index "nimbos_users", ["email"], name: "index_nimbos_users_on_email", unique: true, using: :btree
