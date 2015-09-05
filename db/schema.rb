@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817154732) do
+ActiveRecord::Schema.define(version: 20150905105508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -229,6 +229,11 @@ ActiveRecord::Schema.define(version: 20150817154732) do
   add_index "nimbos_discussions", ["patron_id"], name: "index_nimbos_discussions_on_patron_id", using: :btree
   add_index "nimbos_discussions", ["target_type", "target_id"], name: "index_nimbos_discussions_on_target_type_and_target_id", using: :btree
 
+  create_table "nimbos_group_contacts", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "contact_id"
+  end
+
   create_table "nimbos_groups", force: :cascade do |t|
     t.string   "title",        limit: 255
     t.string   "grouped_type", limit: 100
@@ -353,6 +358,32 @@ ActiveRecord::Schema.define(version: 20150817154732) do
 
   add_index "nimbos_roles", ["name", "resource_type", "resource_id"], name: "index_nimbos_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "nimbos_roles", ["name"], name: "index_nimbos_roles_on_name", using: :btree
+
+  create_table "nimbos_taggings", force: :cascade do |t|
+    t.integer  "tag_id",      null: false
+    t.integer  "parent_id",   null: false
+    t.string   "parent_type", null: false
+    t.integer  "patron_id",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "nimbos_taggings", ["parent_type", "parent_id"], name: "index_nimbos_taggings_on_parent_type_and_parent_id", using: :btree
+  add_index "nimbos_taggings", ["patron_id"], name: "index_nimbos_taggings_on_patron_id", using: :btree
+  add_index "nimbos_taggings", ["tag_id", "parent_type", "parent_id", "patron_id"], name: "nimbos_taggings_unique_tag", unique: true, using: :btree
+  add_index "nimbos_taggings", ["tag_id"], name: "index_nimbos_taggings_on_tag_id", using: :btree
+
+  create_table "nimbos_tags", force: :cascade do |t|
+    t.string   "name",       limit: 50, null: false
+    t.string   "tag_type",   limit: 50
+    t.integer  "patron_id",             null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "nimbos_tags", ["name", "patron_id"], name: "index_nimbos_tags_on_name_and_patron_id", unique: true, using: :btree
+  add_index "nimbos_tags", ["name"], name: "index_nimbos_tags_on_name", using: :btree
+  add_index "nimbos_tags", ["patron_id"], name: "index_nimbos_tags_on_patron_id", using: :btree
 
   create_table "nimbos_tasks", force: :cascade do |t|
     t.integer  "todolist_id",                                   null: false

@@ -1,6 +1,22 @@
 <% if current_user %>
 	<div class="sub-nav">
-	  <%= link_to (image_tag "sitescamp_logo_blck.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>
+		<ul class="nav navbar-nav pull-left">
+			<li>
+				<%= link_to (image_tag "sitescamp_logo_blck.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>
+			</li>
+			<li>
+				<%= link_to t("defaults.link.favorites"), feeder.feeds_path(filter: "like") %>
+			</li>
+			<li>
+				<%= link_to t("defaults.link.read_later"), feeder.feeds_path(filter: "readlater") %>
+			</li>
+			<li>
+				<%= link_to "feed_sources", feeder.feed_sources_path %>
+			</li>
+			<li>
+				<%= link_to "user_sources", feeder.feed_sources_path(filter: "user_sources") %>
+			</li>
+	  </ul>
 	  <ul class="nav navbar-nav pull-right">
 	    <li class="dropdown user">
 	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">	
@@ -31,12 +47,10 @@
 	</div>
 <% else %>
 	<div class="sub-nav">
-	  <%= link_to main_app.root_url do %>
-		  <%= image_tag("sitescamp_logo_blck.png", class: "img-responsive") %>
-		<% end %>
+	  <%= link_to (image_tag "sitescamp_logo_blck.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %>
 			<ul class="nav navbar-nav pull-right">
 			  <li>
-					<%= link_to nimbos.login_path, class: "btn blue", style: "color: #fff;" do %>
+					<%= link_to nimbos.login_path, class: "btn blue", style: "color: #000000;" do %>
 					  <%= t("web.label.login") %> <i class="fa fa-sign-in fa-white"></i>
 					<% end %>
 			  </li>
