@@ -59,13 +59,13 @@ gem 'feedparser'
 gem "resque", "~> 1.25", require: "resque/server"
 gem 'resque-scheduler', require: "resque/server"
 
-gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
+#gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
 gem 'messenger', git: "git@191.238.113.249:nimbo/messenger.git", branch: "master"
-gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
+#gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
 
-#gem 'nimbos', path: "../nimbos"
+gem 'nimbos', path: "../nimbos"
 #gem 'messenger', path: "../messenger"
-#gem 'feeder', path: "../feeder"
+gem 'feeder', path: "../feeder"
 
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'

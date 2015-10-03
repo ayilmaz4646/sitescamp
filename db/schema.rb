@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905105508) do
+ActiveRecord::Schema.define(version: 20150907102122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150905105508) do
     t.datetime "last_check_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "domain_name"
   end
 
   create_table "feeder_feeds", force: :cascade do |t|

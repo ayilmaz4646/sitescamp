@@ -76,4 +76,21 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  # smtp settings for mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:                'smtp.mandrillapp.com',
+    port:                   587,
+    user_name:              'hello@sitescamp.com',
+    password:               Rails.application.secrets.smtp_pwd,
+    #address:                'smtp.zoho.com',
+    #port:                   465,
+    #user_name:              'hello@modaltrans.com',
+    #domain:                 'modaltrans.com',
+    #password:               Rails.application.secrets.smtp_pwd,
+    #authentication:         :plain,
+    #ssl:                    true,
+    #tls:                    true
+  }
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.root_url }
 end
