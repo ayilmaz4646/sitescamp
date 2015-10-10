@@ -1,3 +1,4 @@
-ScheduleSendNotificationsJob:
-  every: 3m
+SendDailyFeedsWorker:
+  cron: "* 7 * * *"
   queue: high
+  description: "This job send daily feeds to followers"

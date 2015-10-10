@@ -7,4 +7,4 @@ resque_config = YAML.load_file(rails_root.to_s + '/config/resque.yml')
 Resque.redis = resque_config[rails_env]
 
 #Resque.schedule = YAML.load_file(rails_root.to_s + '/config/resque_schedule.yml')
-Resque::Scheduler.dynamic = true
+#Resque::Scheduler.dynamic = true

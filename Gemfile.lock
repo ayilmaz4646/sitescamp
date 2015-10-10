@@ -6,14 +6,10 @@ GIT
     messenger (0.0.1)
       rails (= 4.2.3)
 
-PATH
-  remote: ../feeder
-  specs:
-    feeder (0.0.1)
-      rails (= 4.2.3)
-
-PATH
-  remote: ../nimbos
+GIT
+  remote: git@191.238.113.249:nimbo/nimbos.git
+  revision: 723aca0829caa6e0db3dda253c32c3a897e084d2
+  branch: master
   specs:
     nimbos (0.0.1)
       bcrypt-ruby (~> 3.1.2)
@@ -30,6 +26,14 @@ PATH
       therubyracer
       uglifier (>= 1.3.0)
       warden (= 1.2.3)
+
+GIT
+  remote: git@github.com:ayilmaz4646/feeder.git
+  revision: adadbdefc1db6f12c572fc65998ae09b8c4575d0
+  branch: master
+  specs:
+    feeder (0.0.1)
+      rails (= 4.2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -271,7 +275,7 @@ GEM
       railties (>= 3.0, < 4.3)
       roadie (~> 3.0)
     rubyzip (1.1.7)
-    rufus-scheduler (3.1.3)
+    rufus-scheduler (3.1.6)
     sass (3.4.16)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
