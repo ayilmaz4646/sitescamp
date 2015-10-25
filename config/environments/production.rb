@@ -79,18 +79,13 @@ Rails.application.configure do
   # smtp settings for mailer
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:                'smtp.mandrillapp.com',
-    port:                   587,
-    user_name:              'hello@sitescamp.com',
-    password:               Rails.application.secrets.smtp_pwd,
-    #address:                'smtp.zoho.com',
-    #port:                   465,
-    #user_name:              'hello@modaltrans.com',
-    #domain:                 'modaltrans.com',
-    #password:               Rails.application.secrets.smtp_pwd,
-    #authentication:         :plain,
-    #ssl:                    true,
-    #tls:                    true
+    :user_name => Rails.application.secrets.sndgr_name,
+    :password => Rails.application.secrets.sndgr_pwd,
+    :domain => 'sitescamp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { host: Rails.application.secrets.root_url }
 end
