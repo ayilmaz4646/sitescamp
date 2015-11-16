@@ -1,12 +1,22 @@
 <div class="row">
+	<%= render "left_sidebar" %>
+	<section class="col-md-8 col-sm-12 col-md-offset-5 main-content">
+		<%= render "subnav" %>
+		<div class="home-page-posts animated fadeIn ">
+		  <%= render "feeder/feeds/list", feeds: @feeds %>
+		</div>
+	</section>
+</div>
+
+<!-- <div class="row">
 	<div class="col-md-3">
 		<%#= render "home/left_sidebar" %>
 	</div>
 	<div class="col-md-7">
-		<%= render "feeder/feeds/list", feeds: @feeds %>
+		<%#= render "feeder/feeds/list", feeds: @feeds %>
 	</div>
 	<div class="col-md-2">
-		<%= render "home/sidebar" %>
+		<%#= render "home/sidebar" %>
 	</div>
-</div>
+</div> -->
 <%#= link_to "send my feeds", feeder.feeds_path(sendmail: "yes") %>

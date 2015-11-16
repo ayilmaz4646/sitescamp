@@ -1,5 +1,7 @@
  /*
- *= require bootstrap.min
  *= require font-awesome
- *= require main
+ *= require writer/bootstrap.min
+ *= require writer/font-awesome.min
+ *= require writer/main
+ *= require custom
  */

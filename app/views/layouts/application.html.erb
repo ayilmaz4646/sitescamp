@@ -7,18 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-		<div class="body">
-			<header id="header" style="padding-bottom: 60px;">
-			</header>
-			<div role="main" class="main">
-				<div class="container">
-				<%#= render "layouts/categories" %>
-					<%= yield %>
-				</div>
+		
+			<!-- <header id="header" style="padding-bottom: 60px;">
+			</header> -->
+			<div class="container left-container">
+				<%= render "home/left_sidebar" %>
+				<section class="col-md-8 col-sm-12 col-md-offset-5 main-content">
+					<div class="home-page-posts animated fadeIn ">
+						<%= yield %>
+					</div>
+				</section>
 			</div>
-		</div>
-		 <div class="header navbar navbar-inverse navbar-fixed-top">
-    	<%= render "layouts/header" %>
-  	</div>
+
+		 <!-- <div class="header navbar navbar-inverse navbar-fixed-top">
+    	<%#= render "layouts/header" %>
+  	</div> -->
 </body>
 </html>
