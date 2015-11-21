@@ -61,11 +61,11 @@ gem 'resque-scheduler', require: "resque/server"
 
 
 gem 'messenger', git: "git@191.238.113.249:nimbo/messenger.git", branch: "master"
-# gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
-# gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
+gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
+gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
 
-gem 'nimbos', path: "../nimbos"
-gem 'feeder', path: "../feeder"
+# gem 'nimbos', path: "../nimbos"
+# gem 'feeder', path: "../feeder"
 #gem 'messenger', path: "../messenger"
 
 
