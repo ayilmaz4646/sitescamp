@@ -1,16 +1,16 @@
 
-<section class="sidebar col-md-3 col-sm-12" style="left: 0px; background-image: url(<%= asset_path("ebru.png") %>);">
+<section class="sidebar col-md-3 col-sm-12" style="left: 0px; background-image: url(<%= asset_path("eyfel.jpg") %>);">
 	<!-- <p><%#= link_to (image_tag "sitescamp_logo_blck.png", class: "img-responsive"), main_app.root_url, class: "navbar-brand" %></p><br><br> -->
-  <% if current_user %>
-	  <p><i class="fa fa-home"></i> <%= link_to "Home", main_app.root_url %></a></p>
-    <p><i class="fa fa-list"></i> <%= link_to "Feed Sources", feeder.feed_sources_path %></p>
-    <p><i class="fa fa-anchor"></i> <%= link_to "user_sources", feeder.feed_sources_path(filter: "user_sources") %></p>
-    <p><i class="fa fa-star"></i> <%= link_to t("defaults.link.favorites"), feeder.feeds_path(filter: "like") %></p>
-    <p><i class="fa fa-paper-plane"></i> <%= link_to t("defaults.link.read_later"), feeder.feeds_path(filter: "readlater") %></p>
-    <p><%= link_to nimbos.logout_path do %><i class="fa fa-key"></i> <%= t("web.label.logout") %><% end %></p>
-  <% else %>
-    <p><%= link_to nimbos.login_path do %> <i class="fa fa-sign-in fa-white"></i> <%= t("web.label.login") %><% end %></p>
-  <%end%>
+  <!--% if current_user %>
+	<   <p><i class="fa fa-home"></i> <%#= link_to "Home", main_app.root_url %></a></p>
+    <p><i class="fa fa-list"></i> <%#= link_to "Feed Sources", feeder.feed_sources_path %></p>
+    <p><i class="fa fa-anchor"></i> <%#= link_to "user_sources", feeder.feed_sources_path(filter: "user_sources") %></p>
+    <p><i class="fa fa-star"></i> <%#= link_to t("defaults.link.favorites"), feeder.feeds_path(filter: "like") %></p>
+    <p><i class="fa fa-paper-plane"></i> <%#= link_to t("defaults.link.read_later"), feeder.feeds_path(filter: "readlater") %></p>
+    <p><%#= link_to nimbos.logout_path do %><i class="fa fa-key"></i> <%#= t("web.label.logout") %><%# end %></p>
+  <%# else %>
+    <p><%#= link_to nimbos.login_path do %> <i class="fa fa-sign-in fa-white"></i> <%#= t("web.label.login") %><%# end %></p>
+  <%#end%> -->
 <!-- /assets/default-sidebar.jpg 
   <span class="menu-trigger animated fadeInDown">
       <span class="bar"></span>
@@ -18,21 +18,9 @@
       <span class="bar"></span>
   </span>-->
 
-<!--   <div class="site-info">
-  		
-      
-      <div class="primary-info">
-          <h1>Writer</h1>
-          <p>A minimal blogging theme to put your content on show. <a href="post.html">Look at the features.</a> </p>
-
-          <p>Content is king</p>
-      </div>
-      <div class="secondary-info">
-          <p>
-              <a class="btn btn-primary" href="#"><i class="fa fa-user-plus"></i>Join Our Newsletter</a>
-          </p>
-      </div>
-  </div> -->
+  <div class="site-info">
+    <%= yield(:sidebar_action) %>
+  </div>
 </section>
 <!-- 
 
