@@ -1,5 +1,18 @@
+<section class="col-md-8 col-sm-12 col-md-offset-5">
 <div class="sub-nav">
-  <a href="#" class="select-posts active">Posts</a>
+  <!-- <a href="#" class="select-posts active">Posts</a>
   <a href="#" class="select-categories">Categories</a>
-  <a href="#" class="pull-right">Read Later</a>
+  <a href="#" class="pull-right">Read Later</a> -->
+
+	<% if current_user %>
+		<%= link_to "Home", main_app.root_url, class: "select-home active" %>
+	  <%= link_to "Feed Sources", feeder.feed_sources_path, class: "select-feedsource" %>
+	  <%= link_to "user_sources", feeder.feed_sources_path(filter: "user_sources"), class: "select-usersource" %>
+	  <%= link_to t("defaults.link.favorites"), feeder.feeds_path(filter: "like"), class: "select-favorites" %>
+	  <%= link_to t("defaults.link.read_later"), feeder.feeds_path(filter: "readlater"), class: "select-readlater" %>
+	  <%= link_to nimbos.logout_path, class: "select-logout pull-right" do %><%= t("web.label.logout") %><% end %>
+	<% else %>
+	  <%= link_to nimbos.login_path, class: "select-login pull-right" do %><%= t("web.label.login") %><% end %>
+	<%end%>
 </div>
+</section>

@@ -17,7 +17,7 @@ var s,
             // Should include all JS user interactions
             var self = this;
 
-            $('.select-posts,.select-categories').on('click', function () {
+            $('.select-home,.select-feedsource,.select-usersource,.select-favorites,.select-readlater').on('click', function () {
                 self.homePostsCatSwitch();
             });
 
@@ -40,10 +40,10 @@ var s,
         },
         homePostsCatSwitch: function(){
             // Toggles between showing the categories and posts on the homepage
-            $('.home-page-posts').toggleClass("hide");
-            $('.home-page-categories').toggleClass("hide");
-            $('.select-posts').toggleClass("active");
-            $('.select-categories').toggleClass("active");
+            $('.home-page-home').toggleClass("hide");
+            $('.home-page-feedsource').toggleClass("hide");
+            $('.select-home').toggleClass("active");
+            $('.select-feedsource').toggleClass("active");
             $('.home-footer').toggleClass("hide");
         },
         socialIconClick: function(el) {

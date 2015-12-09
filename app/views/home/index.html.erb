@@ -1,8 +1,8 @@
 <div class="row">
 	<%= render "left_sidebar" %>
+	<%= render "subnav" %>
 	<section class="col-md-8 col-sm-12 col-md-offset-5">
-		<%= render "subnav" %>
-		<div class="home-page-posts animated fadeIn ">
+		<div class="home-page-home animated fadeIn ">
 		  <%= render "feeder/feeds/list", feeds: @feeds %>
 		</div>
 	</section>
