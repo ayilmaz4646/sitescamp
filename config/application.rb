@@ -20,6 +20,8 @@ module Sitescamp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     config.i18n.enforce_available_locales = true
+
+    config.active_job.queue_adapter = :sidekiq
     
   end
 end

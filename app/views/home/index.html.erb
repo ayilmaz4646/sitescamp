@@ -4,6 +4,7 @@
 	<section class="col-md-8 col-sm-12 col-md-offset-5">
 		<div class="home-page-home animated fadeIn ">
 		  <%= render "feeder/feeds/list", feeds: @feeds %>
+		  <%= link_to "send my feeds", feeder.feeds_path(sendmail: "yes") %>
 		</div>
 	</section>
 </div>
@@ -19,4 +20,3 @@
 		<%#= render "home/sidebar" %>
 	</div>
 </div> -->
-<%#= link_to "send my feeds", feeder.feeds_path(sendmail: "yes") %>

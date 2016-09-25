@@ -1,12 +1,12 @@
-require 'exception_notification/rails'
+#require 'exception_notification/rails'
 
 
-require 'resque/failure/multiple'
-require 'resque/failure/redis'
-require 'exception_notification/resque'
+# require 'resque/failure/multiple'
+# require 'resque/failure/redis'
+# require 'exception_notification/resque'
 
-Resque::Failure::Multiple.classes = [Resque::Failure::Redis, ExceptionNotification::Resque]
-Resque::Failure.backend = Resque::Failure::Multiple
+# Resque::Failure::Multiple.classes = [Resque::Failure::Redis, ExceptionNotification::Resque]
+# Resque::Failure.backend = Resque::Failure::Multiple
 
 
 ExceptionNotification.configure do |config|

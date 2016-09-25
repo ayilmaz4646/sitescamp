@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+gem 'rails', '5.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -37,9 +37,9 @@ gem 'unicorn'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'simple_form', '~> 3.1.0.rc1'#, github: 'plataformatec/simple_form', branch: 'master'
+gem 'simple_form', '~> 3.2.1'#, github: 'plataformatec/simple_form', branch: 'master'
 gem 'responders', '~> 2.0'
-gem 'kaminari', '~> 0.16.1'
+gem 'kaminari'
 gem 'local_time'
 gem 'roadie-rails'
 gem 'exception_notification'
@@ -56,13 +56,16 @@ gem 'alchemy-api-rb', require: 'alchemy_api'
 gem 'metainspector', '~> 4.3.0'
 gem 'feedparser'
 
-gem "resque", "~> 1.25", require: "resque/server"
-gem 'resque-scheduler', require: "resque/server"
+# gem "resque", "~> 1.25", require: "resque/server"
+# gem 'resque-scheduler', require: "resque/server"
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra'
 
+gem 'simple_command'
 
-gem 'messenger', git: "git@191.238.113.249:nimbo/messenger.git", branch: "master"
+gem 'messenger', git: "git@40.127.187.197:nimbo/messenger.git", branch: "master"
 # gem 'feeder', git: "git@github.com:ayilmaz4646/feeder.git", branch: "master"
-# gem 'nimbos', git: "git@191.238.113.249:nimbo/nimbos.git", branch: "master"
+# gem 'nimbos', git: "git@40.127.187.197:nimbo/nimbos.git", branch: "master"
 
 gem 'nimbos', path: "../nimbos"
 gem 'feeder', path: "../feeder"
@@ -84,4 +87,6 @@ end
 group :development do
   gem 'byebug'
   gem 'letter_opener'
+  gem 'meta_request'
+  gem "better_errors"
 end

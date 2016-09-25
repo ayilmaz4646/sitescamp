@@ -62,5 +62,7 @@ Rails.application.routes.draw do
   mount Nimbos::Engine, at: "/"
   mount Messenger::Engine, at: "/"
   mount Feeder::Engine, at: "/"
-  mount Resque::Server, at: "/resque"
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
+  #mount Resque::Server, at: "/resque"
 end
